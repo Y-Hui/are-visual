@@ -1,0 +1,202 @@
+@import '~@/style/_var.scss';
+
+.are-button {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  font-weight: normal;
+  line-height: $button-line-height;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: $raius;
+  outline: none;
+  box-sizing: border-box;
+  transition: transform .14s;
+  user-select: none;
+
+  &:hover {
+    opacity: .8;
+  }
+
+  &:focus {
+    filter: contrast(.9);
+  }
+
+  &:disabled {
+    cursor: no-drop;
+    opacity: .4;
+  }
+
+  & + .are-button {
+    margin-left: 10px;
+  }
+
+  &__loading {
+    display: inline-block;
+    margin-right: 10px;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    vertical-align: -.15em;
+    animation: loadingCircle 2.4s infinite linear;
+    fill: currentColor;
+  }
+
+  &--readonly {
+    cursor: default;
+    opacity: .6;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+
+  &--press {
+    transform: scale(.96);
+    transition: transform .14s;
+  }
+
+  /* ===== 尺寸 ===== */
+  &--large {
+    padding: 6px 14px;
+    height: 40px;
+    min-width: 104px;
+  }
+
+  &--middle {
+    padding: 6px 14px;
+    height: 36px;
+    min-width: 94px;
+  }
+
+  &--small {
+    padding: 2px 6px;
+    height: 26px;
+    min-width: 60px;
+  }
+
+  /* ===== 类型 ===== */
+  &--text {
+    height: unset;
+    min-width: unset;
+    color: $blue;
+    background: transparent;
+    border: 0;
+    border-color: transparent;
+    transition: background .2s cubic-bezier(.645, .045, .355, 1);
+    user-select: unset;
+
+    &:focus,
+    &:hover {
+      transition: background .2s cubic-bezier(.645, .045, .355, 1);
+    }
+
+    &:focus {
+      background-color: rgba(0, 0, 0, .03);
+      filter: none;
+    }
+  }
+
+  &--plain {
+    color: $blue;
+    border: 1px solid;
+  }
+
+  &--primary {
+    color: #fff;
+    background-color: $blue;
+    border: 0;
+  }
+
+  /* ===== 形状 ===== */
+  &--round {
+    border-radius: 999px;
+  }
+
+  &--circle {
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 50%;
+
+    &.are-button--large {
+      width: 40px;
+      height: 40px;
+      max-width: 40px;
+      max-height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+    }
+
+    &.are-button--middle {
+      width: 36px;
+      height: 36px;
+      max-width: 36px;
+      max-height: 36px;
+      min-width: 36px;
+      min-height: 36px;
+    }
+
+    &.are-button--small {
+      width: 26px;
+      height: 26px;
+      max-width: 26px;
+      max-height: 26px;
+      min-width: 26px;
+      min-height: 26px;
+    }
+
+    .are-button__loading {
+      margin: 0;
+    }
+  }
+
+  /* ===== 独立属性 ===== */
+  &--ghost {
+    color: #fff;
+    background: transparent;
+    border: 1px solid;
+
+    &.are-button--primary {
+      color: $blue;
+      border-color: $blue;
+    }
+  }
+
+  &--block {
+    width: 100%;
+
+    &.are-button--press {
+      transform: scale(.99, .98);
+    }
+  }
+
+  &--danger {
+    color: $red;
+    background-color: #fff;
+    border-color: $red;
+
+    &.are-button--primary {
+      color: #fff;
+      background-color: $red;
+      border-color: $red;
+    }
+
+    &.are-button--text {
+      color: $red;
+    }
+
+    &.are-button--ghost {
+      color: $red;
+      background: transparent;
+    }
+  }
+}
+
+@keyframes loading {
+  100% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
