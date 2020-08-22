@@ -1,25 +1,34 @@
 module.exports = {
   root: true,
-  plugins: [
-    'stylelint-order'
-  ],
-  extends: [
-    'stylelint-config-standard'
-  ],
+  plugins: ['stylelint-order'],
+  extends: ['stylelint-config-standard'],
   rules: {
-    'indentation': 2,
+    indentation: 2,
     'color-hex-case': 'lower',
     'color-hex-length': 'short',
     'length-zero-no-unit': true,
-    'at-rule-empty-line-before': ['always', {
-      ignoreAtRules: ['include', 'extend', 'mixin']
-    }],
+    'at-rule-empty-line-before': [
+      'always',
+      {
+        ignoreAtRules: ['include', 'extend', 'mixin'],
+      },
+    ],
     'number-leading-zero': 'never',
     'color-named': 'never',
-    'selector-pseudo-element-no-unknown': [true, {
-      ignorePseudoElements: ['v-deep']
-    }],
-    'order/properties-order': [ // 指定声明块内属性的字母顺序
+    'selector-pseudo-element-no-unknown': [
+      true,
+      {
+        ignorePseudoElements: ['v-deep'],
+      },
+    ],
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['mixin', 'include'],
+      },
+    ],
+    'order/properties-order': [
+      // 指定声明块内属性的字母顺序
       'content',
       'position',
       'top',
@@ -176,7 +185,7 @@ module.exports = {
       'page',
       'set-link-source',
       'unicode-bidi',
-      'speak'
-    ]
-  }
+      'speak',
+    ],
+  },
 }

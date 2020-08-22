@@ -4,8 +4,8 @@ module.exports = {
     es2020: true,
   },
   extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
+    'react-app',
+    // 'plugin:@typescript-eslint/recommended',
     'airbnb',
   ],
   parser: '@typescript-eslint/parser',
@@ -16,20 +16,20 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-  ],
+  plugins: ['react', '@typescript-eslint'],
   rules: {
-    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
-    "semi": ["error", "never"],
-    "semi-spacing": ["error", { "before": false, "after": true }],
-    "import/extensions": 0,
-    "import/no-unresolved": 0,
-    "import/prefer-default-export": 0,
-    "no-underscore-dangle": 0,
+    'react/jsx-filename-extension': [
+      1,
+      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+    ],
+    semi: ['error', 'never'],
+    'semi-spacing': ['error', { before: false, after: true }],
+    'import/extensions': 0,
+    'import/no-unresolved': 0,
+    'import/prefer-default-export': 0,
+    'no-underscore-dangle': 0,
     'react/prop-types': 0,
     'react/button-has-type': 0,
-    'react/jsx-props-no-spreading': 0
+    'react/jsx-props-no-spreading': 0,
   },
-};
+}

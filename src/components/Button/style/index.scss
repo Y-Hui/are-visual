@@ -5,12 +5,13 @@
   display: inline-block;
   margin: 0;
   font-weight: normal;
-  line-height: $button-line-height;
+  line-height: $are-button-line-height;
+  color: $are-text-color;
   vertical-align: middle;
   cursor: pointer;
   background-color: #fff;
-  border: 1px solid #d9d9d9;
-  border-radius: $raius;
+  border: 1px solid $are-border;
+  border-radius: $are-radius;
   outline: none;
   box-sizing: border-box;
   transition: transform .14s;
@@ -26,7 +27,7 @@
 
   &:disabled {
     cursor: no-drop;
-    opacity: .4;
+    opacity: $are-disabled-opacity;
   }
 
   & + .are-button {
@@ -46,10 +47,10 @@
 
   &--readonly {
     cursor: default;
-    opacity: .6;
+    opacity: $are-disabled-opacity;
 
     &:hover {
-      opacity: .6;
+      opacity: $are-disabled-opacity;
     }
   }
 
@@ -81,7 +82,7 @@
   &--text {
     height: unset;
     min-width: unset;
-    color: $blue;
+    color: $are-primary;
     background: transparent;
     border: 0;
     border-color: transparent;
@@ -100,13 +101,13 @@
   }
 
   &--plain {
-    color: $blue;
+    color: $are-primary;
     border: 1px solid;
   }
 
   &--primary {
     color: #fff;
-    background-color: $blue;
+    background-color: $are-primary;
     border: 0;
   }
 
@@ -159,8 +160,8 @@
     border: 1px solid;
 
     &.are-button--primary {
-      color: $blue;
-      border-color: $blue;
+      color: $are-primary;
+      border-color: $are-primary;
     }
   }
 
@@ -173,22 +174,22 @@
   }
 
   &--danger {
-    color: $red;
+    color: $are-danger;
     background-color: #fff;
-    border-color: $red;
+    border-color: $are-danger;
 
     &.are-button--primary {
       color: #fff;
-      background-color: $red;
-      border-color: $red;
+      background-color: $are-danger;
+      border-color: $are-danger;
     }
 
     &.are-button--text {
-      color: $red;
+      color: $are-danger;
     }
 
     &.are-button--ghost {
-      color: $red;
+      color: $are-danger;
       background: transparent;
     }
   }

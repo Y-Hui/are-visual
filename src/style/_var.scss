@@ -1,12 +1,25 @@
-// [按钮]圆角
-$raius: 4px;
+// [Button、Checkbox]圆角
+$are-radius: 4px;
+
 // [按钮] 文字行高
-$button-line-height: 1;
+$are-button-line-height: 1;
 
-$blue: #3864ff;
+// 主色调
+$are-primary: #3864ff;
+// 危险色
+$are-danger: #f42525;
 
-$red: #f42525;
+// 基本文字颜色
+$are-text-color: #292929;
 
-$orange: #ffab00;
+// 边框颜色
+$are-border: #dedede;
 
-$green: #2aae67;
+// 禁用：透明度
+$are-disabled-opacity: .6;
+// 禁用：文字颜色
+$are-disabled-text: rgba(0, 0, 0, .4);
+// 禁用：背景色
+$are-disabled-background: #ddd;
+// 禁用：边框颜色
+$are-disabled-border: #ccc;
