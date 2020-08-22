@@ -9,5 +9,6 @@
       "options": { "parser": "json" }
     }
   ],
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "proseWrap": "always"
 }

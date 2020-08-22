@@ -1,16 +1,8 @@
 import React, { useState } from 'react'
 import classnames from 'classnames'
+import { ReactComponent as Loading } from './assets/loading.svg'
+import { ButtonProps, MouseEvent, MouseHandleEvent } from './Props'
 import './style/index.scss'
-import { ButtonProps } from './types'
-import Loading from './loading'
-
-type mouseEvent = React.MouseEvent<
-  HTMLButtonElement | HTMLAnchorElement,
-  MouseEvent
->
-type mouseHandleEvent =
-  | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
-  | undefined
 
 const Button: React.FC<ButtonProps> = (props) => {
   const {
@@ -33,7 +25,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     ...otherProps
   } = props
 
-  const onClick = (e: mouseEvent) => {
+  const onClick = (e: MouseEvent) => {
     if (!disabled && !loading && emitClick) {
       emitClick(e)
     }
@@ -42,9 +34,9 @@ const Button: React.FC<ButtonProps> = (props) => {
   /** 按钮是否已被按下 */
   const [isPress, setIsPress] = useState(false)
   const onMouseEvent = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    e: MouseEvent,
     pressState: boolean,
-    emitEvent: mouseHandleEvent,
+    emitEvent: MouseHandleEvent,
   ) => {
     if (!loading) {
       setIsPress(pressState)
@@ -89,7 +81,7 @@ const Button: React.FC<ButtonProps> = (props) => {
       onMouseLeave={(e) => onMouseEvent(e, false, emitMouseLeave)}
       {...otherProps}
     >
-      {loading ? <Loading /> : null}
+      {loading ? <Loading className="are-button__loading" /> : null}
       {shape === 'circle' && loading ? null : children}
     </button>
   )

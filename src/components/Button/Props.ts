@@ -1,9 +1,9 @@
-import { BasicStyle } from '@/@types'
-import { Omit } from '@/utils/type'
+import React from 'react'
+import { BasicStyle } from '../../@types'
+import { Omit } from '../../utils/type'
 
-export interface ButtonProps
-  extends BasicStyle,
-    Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'> {
+type NativeAttr = Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>
+export interface ButtonProps extends BasicStyle, NativeAttr {
   /** 按钮类型 */
   type?: 'primary' | 'text' | 'plain'
   /** 按钮尺寸 */
@@ -31,3 +31,9 @@ export interface ButtonProps
   /** 点击事件 */
   onClick?: React.MouseEventHandler<HTMLElement>
 }
+
+export type MouseEvent = React.MouseEvent<
+  HTMLButtonElement,
+  globalThis.MouseEvent
+>
+export type MouseHandleEvent = ((event: MouseEvent) => void) | undefined
