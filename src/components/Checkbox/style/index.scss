@@ -1,6 +1,5 @@
-@import '~@/style/_var.scss';
+@import "../../../style/_var.scss";
 
-// checkbox focus
 @mixin iconFocus() {
   border-color: lighten($are-primary, 10%);
   box-shadow: 0 0 0 2px rgba($are-primary, .4);

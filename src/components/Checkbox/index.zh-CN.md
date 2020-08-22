@@ -90,7 +90,7 @@ export default () => {
  * desc: 配合 `Checkbox.Group` 一起使用。此时 `mixin` 混合状态就能派上用场。
  */
 import React, { useState, useMemo, useEffect } from 'react'
-import { Button, Checkbox } from 'are-vision'
+import { Checkbox } from 'are-vision'
 
 type CheckState = 'checked' | 'unchecked' | 'mixin'
 

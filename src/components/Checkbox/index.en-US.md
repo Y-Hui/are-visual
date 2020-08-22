@@ -90,7 +90,7 @@ export default () => {
  * desc: Use with `Checkbox.Group`.
  */
 import React, { useState, useMemo, useEffect } from 'react'
-import { Button, Checkbox } from 'are-vision'
+import { Checkbox } from 'are-vision'
 
 type CheckState = 'checked' | 'unchecked' | 'mixin'
 

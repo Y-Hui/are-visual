@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { BasicStyle } from '@/@types/index'
+import { BasicStyle } from '../../@types'
 
 export interface CheckboxProps<T> {
   /** 是否选中 */

@@ -5,23 +5,16 @@ import React, {
   useEffect,
 } from 'react'
 import classnames from 'classnames'
-import './style/index.scss'
-import { CheckboxProps } from './types'
+import { CheckboxProps } from './Props'
 import { ReactComponent as Check } from './assets/check.svg'
 import { ReactComponent as Mixin } from './assets/mixin.svg'
 import CheckboxGroup from './Group'
 import CheckboxCtx, { CheckedContextProps } from './CheckboxContext'
+import './style/index.scss'
 
 type Props<T> = PropsWithChildren<CheckboxProps<T>>
-function Checkbox<T>({
-  checked,
-  children,
-  disabled,
-  name,
-  values,
-  mixin,
-  onChange,
-}: Props<T>): JSX.Element {
+function Checkbox<T>(props: Props<T>): JSX.Element {
+  const { checked, children, disabled, name, values, mixin, onChange } = props
   // 选中值，未选中值
   const [CHECK, UNCHECK] = values as T[]
 
@@ -35,7 +28,7 @@ function Checkbox<T>({
 
   useEffect(
     () => () => {
-      // removeCheckbox(name)
+      removeCheckbox(name)
     },
     [name, removeCheckbox],
   )

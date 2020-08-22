@@ -6,7 +6,7 @@ import React, {
 } from 'react'
 import { omit } from '@/utils/common'
 import CheckboxCtx from './CheckboxContext'
-import { CheckboxGroupProps } from './types'
+import { CheckboxGroupProps } from './Props'
 
 type Props<T> = PropsWithChildren<CheckboxGroupProps<T>>
 
@@ -29,14 +29,8 @@ function handlerResult<T>(
   }
 }
 
-function CheckboxGroup<T>({
-  value = [],
-  disabled,
-  className,
-  style,
-  children,
-  onChange,
-}: Props<T>): JSX.Element {
+function CheckboxGroup<T>(props: Props<T>): JSX.Element {
+  const { value = [], disabled, className, style, children, onChange } = props
   const [values, setValues] = useState(value)
 
   /**
