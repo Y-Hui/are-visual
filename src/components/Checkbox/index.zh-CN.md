@@ -159,7 +159,7 @@ export default () => {
 
 #### Checkbox API
 
-| Props    | Description                                                                                | Type                                    | Defaults        |
+| 属性     | 描述                                                                                       | 类型                                    | 默认值          |
 | -------- | ------------------------------------------------------------------------------------------ | --------------------------------------- | --------------- |
 | checked  | 是否选中<br/>虽然我们没有限定类型（适用于类型推断） <br />但是建议使用右侧推荐的原始类型。 | `boolean` \| `number` \| `string`       | `false`         |
 | disabled | disable checkbox                                                                           | `boolean`                               | `false`         |
@@ -170,8 +170,8 @@ export default () => {
 
 #### Checkbox.Group API
 
-| Props    | Description          | Type                                    | Defaults |
-| -------- | -------------------- | --------------------------------------- | -------- |
-| values   | 设置这组选定的数值。 | `string[]` \| `number[]` \| `boolean[]` | -        |
-| disabled | disable this group.  | `boolean`                               | `false`  |
-| onChange | 修改状态的回调函数。 | `(value: T[]) => void`                  | -        |
+| 属性     | 描述                 | 类型                                    | 默认值  |
+| -------- | -------------------- | --------------------------------------- | ------- |
+| values   | 设置这组选定的数值。 | `string[]` \| `number[]` \| `boolean[]` | -       |
+| disabled | disable this group.  | `boolean`                               | `false` |
+| onChange | 修改状态的回调函数。 | `(value: T[]) => void`                  | -       |
