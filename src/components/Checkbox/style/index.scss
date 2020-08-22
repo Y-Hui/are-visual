@@ -1,1 +1,137 @@
 @import '~@/style/_var.scss';
+
+// checkbox focus
+@mixin iconFocus() {
+  border-color: lighten($are-primary, 10%);
+  box-shadow: 0 0 0 2px rgba($are-primary, .4);
+}
+
+.are-checkbox {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.5715;
+  color: $are-text-color;
+  cursor: pointer;
+  outline: 0;
+
+  & + & {
+    margin-left: 10px;
+  }
+
+  &__icon {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #d6d6d6;
+    border-radius: $are-radius;
+    outline: 0;
+    box-sizing: border-box;
+    transition: border-color .2s ease-in, background-color .2s ease-in;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      border-radius: inherit;
+      transform: scale(1);
+      transition: transform .2s ease-in;
+    }
+
+    &:focus {
+      @include iconFocus();
+    }
+  }
+
+  &__svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    transform: scale(0);
+    fill: currentColor;
+  }
+
+  &__label {
+    display: inline-block;
+    padding: 0 8px;
+    vertical-align: middle;
+    cursor: inherit;
+  }
+
+  &--checked {
+    .are-checkbox__icon {
+      background-color: $are-primary;
+      border-color: $are-primary;
+
+      &::before {
+        transform: scale(0);
+      }
+    }
+
+    .are-checkbox__svg {
+      animation: zoomInIcon .2s ease-in forwards;
+      animation-delay: .2s;
+    }
+  }
+
+  &--mixin {
+    .are-checkbox__icon {
+      background-color: $are-primary;
+      border-color: $are-primary;
+
+      &::before {
+        transform: scale(0);
+      }
+    }
+
+    .are-checkbox__svg {
+      animation: zoomInIcon .2s ease-in forwards;
+      animation-delay: .2s;
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: $are-disabled-opacity;
+
+    .are-checkbox__icon {
+      color: $are-disabled-text;
+      background-color: $are-disabled-background;
+      border-color: $are-disabled-border;
+
+      &::before {
+        background-color: $are-disabled-background;
+      }
+    }
+  }
+
+  &:focus {
+    .are-checkbox__icon {
+      @include iconFocus();
+    }
+  }
+}
+
+@keyframes zoomInIcon {
+  0% {
+    transform: scale(0);
+  }
+
+  90% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
