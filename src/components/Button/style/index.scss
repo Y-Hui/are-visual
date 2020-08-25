@@ -35,14 +35,7 @@
   }
 
   &__loading {
-    display: inline-block;
     margin-right: 10px;
-    width: 1em;
-    height: 1em;
-    overflow: hidden;
-    vertical-align: -.15em;
-    animation: loadingCircle 2.4s infinite linear;
-    fill: currentColor;
   }
 
   &--readonly {
@@ -192,12 +185,5 @@
       color: $are-danger;
       background: transparent;
     }
-  }
-}
-
-@keyframes loading {
-  100% {
-    -webkit-transform: rotate(1turn);
-    transform: rotate(1turn);
   }
 }

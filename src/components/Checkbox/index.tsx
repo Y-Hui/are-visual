@@ -6,8 +6,8 @@ import React, {
 } from 'react'
 import classnames from 'classnames'
 import { CheckboxProps } from './Props'
-import { ReactComponent as Check } from './assets/check.svg'
-import { ReactComponent as Mixin } from './assets/mixin.svg'
+import { ReactComponent as Check } from '../../icons/check.svg'
+import { ReactComponent as Mixin } from '../../icons/mixin.svg'
 import CheckboxGroup from './Group'
 import CheckboxCtx, { CheckedContextProps } from './CheckboxContext'
 import './style/index.scss'
@@ -93,8 +93,6 @@ function Checkbox<T>(props: Props<T>): JSX.Element {
 
 Checkbox.Group = CheckboxGroup
 
-Checkbox.defaultProps = {
-  values: [true, false],
-} as CheckboxProps<boolean>
+Checkbox.defaultProps = { values: [true, false] } as CheckboxProps<boolean>
 
 export default Checkbox

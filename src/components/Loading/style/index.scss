@@ -1,0 +1,16 @@
+.are-loading {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: -.15em;
+  animation: loading 2.4s infinite linear;
+  fill: currentColor;
+}
+
+@keyframes loading {
+  100% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}

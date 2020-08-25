@@ -1,4 +1,4 @@
-import { defineConfig } from 'dumi';
+import { defineConfig } from 'dumi'
 
 export default defineConfig({
   title: 'Are Vision',
@@ -6,4 +6,4 @@ export default defineConfig({
   logo: '/images/logo.png',
   outputPath: 'docs-dist',
   // more config: https://d.umijs.org/config
-});
+})

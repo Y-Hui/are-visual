@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classnames from 'classnames'
-import { ReactComponent as Loading } from './assets/loading.svg'
+import Loading from '../Loading'
 import { ButtonProps, MouseEvent, MouseHandleEvent } from './Props'
 import './style/index.scss'
 

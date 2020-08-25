@@ -7,7 +7,18 @@ module.exports = {
     'react-app',
     // 'plugin:@typescript-eslint/recommended',
     'airbnb',
+    'plugin:prettier/recommended',
+    'prettier/react',
   ],
+  // settings: {
+  //   'import/resolver': {
+  //     alias: {
+  //       map: [
+  //         ['are-vision', './src/index'],
+  //       ],
+  //     }
+  //   }
+  // },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -16,7 +27,7 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/jsx-filename-extension': [
       1,
@@ -31,5 +42,7 @@ module.exports = {
     'react/prop-types': 0,
     'react/button-has-type': 0,
     'react/jsx-props-no-spreading': 0,
+    'import/no-extraneous-dependencies': 0,
+    'prettier/prettier': ['error'],
   },
 }
