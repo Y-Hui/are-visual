@@ -10,39 +10,32 @@
   pointer-events: none;
 }
 
-.are-message {
+.are-message-wrapper {
   position: relative;
   padding: 8px 0;
   color: $are-text-color;
   text-align: center;
+}
 
-  &__content-wrap {
-    position: relative;
-    display: inline-block;
-    padding: 8px 24px;
-    font-size: 14px;
-    line-height: 1.5715;
-    pointer-events: all;
-    background-color: #fff;
-    border: 1px solid $are-border-light;
-    border-radius: 999px;
-    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, .06);
-    box-sizing: border-box;
+.are-message {
+  position: relative;
+  display: inline-block;
+  padding: 8px 24px;
+  font-size: 14px;
+  line-height: 1.5715;
+  pointer-events: all;
+  background-color: #fff;
+  border: 1px solid $are-border-light;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, .06);
+  box-sizing: border-box;
 
-    &--close {
-      padding-right: 44px;
-    }
+  &--close {
+    padding-right: 44px;
   }
 
   &__content {
     display: inline-block;
-    vertical-align: middle;
-  }
-
-  &__icon {
-    display: inline-block;
-    font-size: 16px;
-    line-height: 1;
     vertical-align: middle;
   }
 
@@ -62,42 +55,15 @@
   }
 
   &__loading {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
     color: $are-primary;
+    vertical-align: middle;
 
     &--space {
       margin-right: 10px;
     }
-  }
-
-  &__err,
-  &__warn,
-  &__success,
-  &__clear {
-    display: inline-block;
-    margin-right: 10px;
-    width: 1em;
-    height: 1em;
-    overflow: hidden;
-    font-size: 18px;
-    vertical-align: -.15em;
-    fill: currentColor;
-  }
-
-  &__err {
-    color: $are-danger;
-  }
-
-  &__warn {
-    color: $are-warn;
-  }
-
-  &__success {
-    color: $are-success;
-  }
-
-  &__clear {
-    margin: 0;
-    font-size: 10px;
   }
 
   &-enter-active {

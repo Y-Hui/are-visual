@@ -1,4 +1,4 @@
-## Message 提示
+## Message 提示消息
 
 ### 基础用法
 
@@ -10,11 +10,11 @@
 
 ### 显示时长
 
-Message 默认显示时长为 `3000` 毫秒。你可以传入第二个参数来修改时长，若值为 `0` 则持续显示。
+提示消息默认显示时长为 `3000` 毫秒。你可以传入第二个参数来修改时长，若值为 `0` 则持续显示。
 
 <code src="./demo/duration.tsx" />
 
-### 清理提示
+### 清空提示消息
 
 注意：`clearAll` 方法清空的是当前函数所在的上下文的提示消息。
 
@@ -22,7 +22,7 @@ Message 默认显示时长为 `3000` 毫秒。你可以传入第二个参数来�
 
 ### 加载状态与更新
 
-指定 `id` 用于更新 Message
+指定 `id` 用于更新
 
 <code src="./demo/loading.tsx" />
 
@@ -36,6 +36,10 @@ Message 默认显示时长为 `3000` 毫秒。你可以传入第二个参数来�
 
 <code src="./demo/call.tsx" />
 
+### 链式调用
+
+<code src="./demo/chain-call.tsx" />
+
 ### 别名函数使用方式与参数：
 
 - `message.info(content, [duration], [props])`
@@ -46,7 +50,30 @@ Message 默认显示时长为 `3000` 毫秒。你可以传入第二个参数来�
 
 - `message.success(content, [duration], [props])`
 
-每个别名函数的返回值为**当前添加的提示消息**的关闭函数
+每个别名函数的返回值都包含一个关闭**当前提示消息**的函数
+
+```ts
+import { message } from 'are-vision'
+
+const { close } = message.info('Info Message')
+
+// 这个 `close` 便是关闭此条提示消息的函数
+```
+
+<br/>
+
+**注意：一旦使用 `链式调用` 的 message 函数，那么 `close` 函数便不受支持。**
+
+```ts
+import { message } from 'are-vision'
+
+// Error: 此时的 close 为 undefined
+const { close } = message.info('Info Message', 0).then(() => {
+  console.log('Callback')
+})
+```
+
+每一个别名函数的返回类型都继承自一个 `PromiseLike` 类型，调用 `then` 函数时返回的是一个真正的 `Promise`，`Are` 以此种方式实现的链式调用，`then` 函数调用完毕后，返回值内已经不存在这样一个 `close` 函数了。所以 `链式调用` 和 `close` 函数只能取其一，二者不可兼得。
 
 #### Props
 
@@ -112,17 +139,17 @@ import App from './App'
 export default ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
-这段代码末尾处调用了 `ReactDOM.render` 函数，创建一个 React 实体（暂且称其为 `App 实体`）。
+这段代码末尾处调用了 `ReactDOM.render` 函数，创建一个 React 实例（暂且称其为 `App 实例`）。
 
 <br/>
 
-当我们直接调用 `message` 函数时，`Are` 会使用 `ReactDOM.render` 函数创建一个额外的 React 实体（暂且称其为 `Symbol 实体`），通过别名函数显示一个提示消息，这条提示被记录在 `Symbol 实体` 内部。
+当我们直接调用 `message` 函数时，`Are` 会使用 `ReactDOM.render` 函数创建一个额外的 React 实例（暂且称其为 `Symbol 实例`），通过别名函数显示一个提示消息，这条提示被记录在 `Symbol 实例` 内部。
 
-因此，`message` 函数无法访问到处于 `App 实体` 的上下文，它们之间并没有任何联系。所以，这也是为什么 `clearAll` 函数无法清除所有的提示消息，只能清除对应实体内部的提示消息。
+因此，`message` 函数无法访问到处于 `App 实例` 的上下文，它们之间并没有任何联系。所以，这也是为什么 `clearAll` 函数无法清除所有的提示消息，只能清除对应实例内部的提示消息。
 
 当你使用 `createContext` 向子孙组件传递数据并且 `message` 需要显示这些数据时，你就不能使用 `message` 函数，而应该使用 `useMessage` Hook。
 
-`useMessage` Hook 会返回对应的调用函数和实体。
+`useMessage` Hook 会返回对应的调用函数和实例。
 
 ```ts
 import { useMessage } from 'are-vision'
@@ -131,13 +158,13 @@ export default () => {
   const [msgApi, Message] = useMessage()
   return (
     <>
-      {/* 必须要插入当前创建的 Message 实体，才能与当前代码产生关联 */}
+      {/* 必须要插入当前创建的 Message 实例，才能与当前代码产生关联 */}
       <Message />
     </>
   )
 }
 ```
 
-当然，`msgApi` 使用方式和 `message` 函数完全一样，只是对应不一样的实体。
+当然，`msgApi` 使用方式和 `message` 函数完全一样，只是对应不一样的实例。
 
-综上所述：`message` 与当前代码属于两个实体，互不关联。`useMessage` Hook 可以返回一个实体，在当前代码中插入，成为父子组件关系。
+综上所述：`message` 与当前代码属于两个实例，互不关联。`useMessage` Hook 可以返回一个实例，在当前代码中插入，成为父子组件关系。

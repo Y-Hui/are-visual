@@ -20,7 +20,7 @@ export default () => {
   }
 
   const manualShutdown = () => {
-    const close = message.info('Message can be closed manually.', 5000)
+    const { close } = message.info('Message can be closed manually.', 5000)
     setTimeout(close, 1000)
   }
 

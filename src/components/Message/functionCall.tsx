@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import MessageStore from './MessageStore'
-import { MessageCall } from './Props'
-import { createContainer, CONTAINER_ID } from './MessageContent'
+import { MessageStoreRef } from './types/store'
+import { createContainer, CONTAINER_ID } from './utils/container'
 import { createAlias } from './alias'
 
-let instance: MessageCall | null = null
+let instance: MessageStoreRef | null = null
 
-function init(): MessageCall {
+function init(): MessageStoreRef {
   const container = document.getElementById(CONTAINER_ID)
   if (!instance || !container) {
     ReactDOM.render(
@@ -19,14 +19,14 @@ function init(): MessageCall {
       createContainer(),
     )
   }
-  return instance as MessageCall
+  return instance as MessageStoreRef
 }
 
-function call(): MessageCall {
+function call(): MessageStoreRef {
   if (!instance) {
     return init()
   }
-  return instance as MessageCall
+  return instance as MessageStoreRef
 }
 
 const message = createAlias(call)

@@ -9,21 +9,19 @@ import React, {
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { createPortal } from 'react-dom'
 import Message from './Message'
+import { MessageStoreProps, MessageState, MessageStoreRef } from './types/store'
 import {
-  MessageStoreProps,
-  MessageState,
-  MessageCall,
-  AddNoticeParams,
+  AddMessageParams,
+  MessageIdType,
   CloseMessageFunc,
-  MessageId,
-} from './Props'
+} from './types/index'
 import { generateId } from './utils/id'
 
 interface HandlerTimeoutProps {
   /** 回调函数 */
   callback: (timer?: NodeJS.Timeout) => void
   /** Message id */
-  id: MessageId
+  id: MessageIdType
   /** 显示时长 */
   duration?: number
 }
@@ -49,7 +47,7 @@ const reducer: Reducer<StoreState, StoreAction> = (state, actions) => {
         return state
       }
       const _state = state.slice(0)
-      const index = actions.replaceIndex as MessageId
+      const index = actions.replaceIndex as MessageIdType
       _state.splice(Number(index), 1, payload)
 
       return _state
@@ -66,10 +64,10 @@ const reducer: Reducer<StoreState, StoreAction> = (state, actions) => {
   }
 }
 
-const MessageStore: RefForwardingComponent<MessageCall, MessageStoreProps> = (
-  props,
-  ref,
-) => {
+const MessageStore: RefForwardingComponent<
+  MessageStoreRef,
+  MessageStoreProps
+> = (props, ref) => {
   const { holder } = props
   const [store, dispatch] = useReducer(reducer, [])
 
@@ -104,7 +102,7 @@ const MessageStore: RefForwardingComponent<MessageCall, MessageStoreProps> = (
 
   /** 添加一条 Message */
   const add = useCallback(
-    (value: AddNoticeParams): CloseMessageFunc => {
+    (value: AddMessageParams): CloseMessageFunc => {
       const { duration, id } = value
       const key = generateId(id)
       return handlerTimeout({
@@ -118,7 +116,7 @@ const MessageStore: RefForwardingComponent<MessageCall, MessageStoreProps> = (
             },
           })
         },
-        id: key as MessageId,
+        id: key as MessageIdType,
         duration,
       })
     },
@@ -127,7 +125,7 @@ const MessageStore: RefForwardingComponent<MessageCall, MessageStoreProps> = (
 
   /** 更新 Message */
   const update = useCallback(
-    (index: number, value: AddNoticeParams): CloseMessageFunc => {
+    (index: number, value: AddMessageParams): CloseMessageFunc => {
       return handlerTimeout({
         callback: (timer) => {
           dispatch({
@@ -140,7 +138,7 @@ const MessageStore: RefForwardingComponent<MessageCall, MessageStoreProps> = (
             },
           })
         },
-        id: value.id as MessageId,
+        id: value.id as MessageIdType,
         duration: value.duration,
       })
     },
@@ -155,7 +153,7 @@ const MessageStore: RefForwardingComponent<MessageCall, MessageStoreProps> = (
   }, [])
 
   const handlerAdd = useCallback(
-    (value: AddNoticeParams): CloseMessageFunc => {
+    (value: AddMessageParams): CloseMessageFunc => {
       if ('id' in value) {
         const index = store.findIndex((item) => item.id === value.id)
         if (index !== -1) {

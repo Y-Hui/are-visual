@@ -1,0 +1,25 @@
+@import "../../../style/_var.scss";
+
+.are-message {
+  &__err,
+  &__warn,
+  &__success {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  &__err {
+    color: $are-danger;
+  }
+
+  &__warn {
+    color: $are-warn;
+  }
+
+  &__success {
+    color: $are-success;
+  }
+}

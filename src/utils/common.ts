@@ -38,3 +38,14 @@ export function omit(target: TargetType, keyList: any[]): TargetType {
   })
   return result
 }
+
+/**
+ * 条件执行函数，条件为 `true` 时执行 callback
+ * @param callback 执行函数
+ * @param condition 判断条件
+ */
+export function conditionFunc(callback: () => void, condition: boolean) {
+  if (condition) {
+    callback()
+  }
+}

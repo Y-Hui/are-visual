@@ -1,10 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
-import { MessageProps } from './Props'
+import { MessageProps } from './types/message'
 import Loading from '../Loading'
-import { ReactComponent as Error } from '../../icons/err.svg'
-import { ReactComponent as Warn } from '../../icons/warn.svg'
-import { ReactComponent as Success } from '../../icons/success.svg'
+import StatusIcon from './StatusIcon'
 import { ReactComponent as Close } from '../../icons/close.svg'
 import './style/index.scss'
 
@@ -19,55 +17,33 @@ const Message: React.FC<MessageProps> = (props) => {
     onClose,
   } = props
 
-  const statusIcon = () => {
-    switch (type) {
-      case 'warn':
-        return (
-          <span className="are-message__icon">
-            <Warn className="are-message__warn" />
-          </span>
-        )
-      case 'error':
-        return (
-          <span className="are-message__icon">
-            <Error className="are-message__err" />
-          </span>
-        )
-      case 'success':
-        return (
-          <span className="are-message__icon">
-            <Success className="are-message__success" />
-          </span>
-        )
-      default:
-        return null
+  const icon = () => {
+    if (loading) {
+      return (
+        <Loading
+          className={classnames({
+            'are-message__loading': true,
+            'are-message__loading--space': children,
+          })}
+        />
+      )
     }
+    return <StatusIcon type={type} />
   }
 
   return (
-    <div className={classnames('are-message')}>
+    <div className={classnames('are-message-wrapper')}>
       <div
         className={classnames(
           {
-            'are-message__content-wrap': true,
-            'are-message__content-wrap--close': showClose,
+            'are-message': true,
+            'are-message--close': showClose,
           },
           className,
         )}
         style={style}
       >
-        {loading ? (
-          <span className="are-message__icon">
-            <Loading
-              className={classnames({
-                'are-message__loading': true,
-                'are-message__loading--space': children,
-              })}
-            />
-          </span>
-        ) : (
-          statusIcon()
-        )}
+        {icon()}
         <div className="are-message__content">{children}</div>
         {showClose ? (
           <span
@@ -77,7 +53,7 @@ const Message: React.FC<MessageProps> = (props) => {
             tabIndex={-1}
             onKeyPress={() => {}}
           >
-            <Close className="are-message__clear" />
+            <Close className="are-svg" />
           </span>
         ) : null}
       </div>

@@ -1,6 +1,6 @@
-import { MessageId } from '../Props'
+import { MessageIdType } from '../types/index'
 
-export function generateId(id?: MessageId): MessageId {
+export function generateId(id?: MessageIdType): MessageIdType {
   if (typeof id === 'number' || typeof id === 'string') {
     return id
   }
