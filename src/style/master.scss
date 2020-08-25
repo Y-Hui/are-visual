@@ -1,0 +1,30 @@
+@import './var';
+
+.are-svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: -.15em;
+  fill: currentColor;
+}
+
+.are-color {
+  color: $are-text-color;
+
+  &--primary {
+    color: $are-primary;
+  }
+
+  &--danger {
+    color: $are-danger;
+  }
+
+  &--warn {
+    color: $are-warn;
+  }
+
+  &--success {
+    color: $are-success;
+  }
+}
