@@ -89,7 +89,7 @@ Each alias function inherits a `PromiseLike` type for its return type, and calls
 | className | Customized CSS class                                                    |                 | `string`                                                      |          |
 | style     | Customized inline style                                                 |                 | `CSSProperties`                                               |          |
 
-### Abdout clear
+### About clear
 
 This function clears the default `context` prompt message. The return value is the `message` function.
 
