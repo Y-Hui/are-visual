@@ -20,7 +20,7 @@
 
 ```tsx
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => {
   return (
@@ -42,7 +42,7 @@ export default () => {
  * desc: 它只控制按钮的形状，不参与其他样式的控制。
  */
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => (
   <>
@@ -65,7 +65,7 @@ export default () => (
  * background: '#afafaf'
  */
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => (
   <>
@@ -93,7 +93,7 @@ export default () => (
 
 ```tsx
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => {
   return (
@@ -115,7 +115,7 @@ export default () => {
 
 ```tsx
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => {
   return (
@@ -142,7 +142,7 @@ export default () => {
 
 ```tsx
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => (
   <>
@@ -161,7 +161,7 @@ export default () => (
 
 ```tsx
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => (
   <>
@@ -174,7 +174,7 @@ export default () => (
 
 ```tsx
 import React, { useState } from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => {
   const [loading, setLoading] = useState(false)

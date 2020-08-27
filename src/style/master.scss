@@ -1,5 +1,9 @@
 @import './var';
 
+[data-focus-visible-added].focus-visible {
+  outline: solid 2px rgba($are-primary, .4);
+}
+
 .are-svg {
   display: inline-block;
   width: 1em;

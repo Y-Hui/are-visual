@@ -1,4 +1,4 @@
-const CONTAINER_ID = 'ARE-VISION-MESSAGE'
+const CONTAINER_ID = 'ARE-VISUAL-MESSAGE'
 
 /** Create DOM */
 const createContainer = () => {

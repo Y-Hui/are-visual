@@ -20,7 +20,7 @@ There are four more state attributes:
 
 ```tsx
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => {
   return (
@@ -42,7 +42,7 @@ export default () => {
  * desc: It only controls the shape of the button and is not involved in the control of other styles.
  */
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => (
   <>
@@ -65,7 +65,7 @@ export default () => (
  * background: '#afafaf'
  */
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => (
   <>
@@ -93,7 +93,7 @@ export default () => (
 
 ```tsx
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => {
   return (
@@ -115,7 +115,7 @@ export default () => {
 
 ```tsx
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => {
   return (
@@ -142,7 +142,7 @@ export default () => {
 
 ```tsx
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => (
   <>
@@ -161,7 +161,7 @@ export default () => (
 
 ```tsx
 import React from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => (
   <>
@@ -174,7 +174,7 @@ export default () => (
 
 ```tsx
 import React, { useState } from 'react'
-import { Button } from 'are-vision'
+import { Button } from 'are-visual'
 
 export default () => {
   const [loading, setLoading] = useState(false)
@@ -197,7 +197,7 @@ export default () => {
         A
       </Button>
       <Button type="text" loading={loading} onClick={onClick}>
-        Danger
+        Loading
       </Button>
     </>
   )

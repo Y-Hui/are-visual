@@ -53,7 +53,7 @@
 每个别名函数的返回值都包含一个关闭**当前提示消息**的函数
 
 ```ts
-import { message } from 'are-vision'
+import { message } from 'are-visual'
 
 const { close } = message.info('Info Message')
 
@@ -65,7 +65,7 @@ const { close } = message.info('Info Message')
 **注意：一旦使用 `链式调用` 的 message 函数，那么 `close` 函数便不受支持。**
 
 ```ts
-import { message } from 'are-vision'
+import { message } from 'are-visual'
 
 // Error: 此时的 close 为 undefined
 const { close } = message.info('Info Message', 0).then(() => {
@@ -94,7 +94,7 @@ const { close } = message.info('Info Message', 0).then(() => {
 此函数清空的是默认的 `context` 的提示消息。返回值为 `message` 函数。
 
 ```ts
-import { message } from 'are-vision'
+import { message } from 'are-visual'
 
 message.clearAll()
 ```
@@ -104,7 +104,7 @@ message.clearAll()
 如果使用 `useMessage` 那么你应该这样写：
 
 ```ts
-import { useMessage } from 'are-vision'
+import { useMessage } from 'are-visual'
 
 export default () => {
   const [msgApi, Message] = useMessage()
@@ -120,7 +120,7 @@ export default () => {
 链式调用：
 
 ```ts
-import { message } from 'are-vision'
+import { message } from 'are-visual'
 
 message.clearAll().success('链式调用')
 ```
@@ -152,7 +152,7 @@ export default ReactDOM.render(<App />, document.getElementById('root'))
 `useMessage` Hook 会返回对应的调用函数和实例。
 
 ```ts
-import { useMessage } from 'are-vision'
+import { useMessage } from 'are-visual'
 
 export default () => {
   const [msgApi, Message] = useMessage()

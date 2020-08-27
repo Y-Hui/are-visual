@@ -9,20 +9,21 @@
   color: $are-text-color;
   vertical-align: middle;
   cursor: pointer;
-  background-color: #fff;
-  border: 1px solid $are-border;
+  background-color: $are-basic-bg;
+  border: none;
   border-radius: $are-radius;
-  outline: none;
+  box-shadow: none;
   box-sizing: border-box;
   transition: transform .14s;
   user-select: none;
 
   &:hover {
+    // outline: none;
     opacity: .8;
   }
 
-  &:focus {
-    filter: contrast(.9);
+  &:active {
+    outline: none;
   }
 
   &:disabled {
@@ -95,6 +96,7 @@
 
   &--plain {
     color: $are-primary;
+    background-color: #fff;
     border: 1px solid;
   }
 
@@ -168,7 +170,7 @@
 
   &--danger {
     color: $are-danger;
-    background-color: #fff;
+    background-color: rgba($are-danger, .06);
     border-color: $are-danger;
 
     &.are-button--primary {
@@ -179,11 +181,20 @@
 
     &.are-button--text {
       color: $are-danger;
+      background-color: transparent;
+
+      &:focus {
+        background-color: rgba($are-danger, .06);
+      }
     }
 
     &.are-button--ghost {
       color: $are-danger;
       background: transparent;
     }
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
   }
 }

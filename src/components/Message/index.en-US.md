@@ -53,7 +53,7 @@ You can create a context to interrelate with your `Provider` through `useMessage
 The return value of each alias function contains a function that closes the **current prompt message**.
 
 ```ts
-import { message } from 'are-vision'
+import { message } from 'are-visual'
 
 const { close } = message.info('Info Message')
 
@@ -65,7 +65,7 @@ const { close } = message.info('Info Message')
 **Note: Once the message function of `Chain Call` is used, the `close` function is not supported.**
 
 ```ts
-import { message } from 'are-vision'
+import { message } from 'are-visual'
 
 // Error: Ths close is undefined
 const { close } = message.info('Info Message', 0).then(() => {
@@ -94,7 +94,7 @@ Each alias function inherits a `PromiseLike` type for its return type, and calls
 This function clears the default `context` prompt message. The return value is the `message` function.
 
 ```ts
-import { message } from 'are-vision'
+import { message } from 'are-visual'
 
 message.clearAll()
 ```
@@ -104,7 +104,7 @@ message.clearAll()
 If you use `useMessage` then you should write something like this.
 
 ```ts
-import { useMessage } from 'are-vision'
+import { useMessage } from 'are-visual'
 
 export default () => {
   const [msgApi, Message] = useMessage()
@@ -120,7 +120,7 @@ export default () => {
 Chain call：
 
 ```ts
-import { message } from 'are-vision'
+import { message } from 'are-visual'
 
 message.clearAll().success('Chain call')
 ```
@@ -152,7 +152,7 @@ When you use `createContext` to pass data to a descendant component and `message
 `useMessage` Hook will return the corresponding call function and instance.
 
 ```ts
-import { useMessage } from 'are-vision'
+import { useMessage } from 'are-visual'
 
 export default () => {
   const [msgApi, Message] = useMessage()

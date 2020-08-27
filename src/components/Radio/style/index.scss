@@ -94,4 +94,12 @@
       }
     }
   }
+
+  &.focus-visible[data-focus-visible-added] {
+    outline: none;
+
+    .are-radio__icon {
+      @include AreFocus();
+    }
+  }
 }

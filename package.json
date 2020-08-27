@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "are-vision",
+  "name": "are-visual",
   "version": "1.0.0",
   "scripts": {
     "start": "dumi dev",
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "focus-visible": "^5.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.13.1",
     "react-transition-group": "^4.4.1"
