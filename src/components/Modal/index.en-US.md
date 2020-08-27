@@ -1,0 +1,13 @@
+## Modal
+
+### Basic usage
+
+<code src="./demo/basic.tsx" />
+
+### API
+
+| Props | Description | Type | Defaults |
+| ----- | ----------- | ---- | -------- |
+|       |             |      |          |
+|       |             |      |          |
+|       |             |      |          |

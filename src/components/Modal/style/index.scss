@@ -1,0 +1,36 @@
+@import "../../../style/_var.scss";
+
+.are-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.are-modal {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  left: 0;
+  display: none;
+  margin: 0 auto;
+  width: 540px;
+  height: 200px;
+  min-width: 540px;
+  pointer-events: auto;
+  background-color: #fff;
+  border-radius: $are-radius;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, .1);
+  box-sizing: border-box;
+
+  &[data-show="true"] {
+    display: block;
+  }
+
+  &[data-show="false"] {
+    display: none;
+  }
+}
