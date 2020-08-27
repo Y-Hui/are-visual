@@ -4,7 +4,7 @@
 
 ```tsx
 import React, { useState } from 'react'
-import { Checkbox } from 'are-vision'
+import { Checkbox } from 'are-visual'
 
 export default () => {
   const [check, setCheck] = useState(true)
@@ -37,7 +37,7 @@ export default () => {
 
 ```tsx
 import React from 'react'
-import { Checkbox } from 'are-vision'
+import { Checkbox } from 'are-visual'
 
 export default () => {
   return (
@@ -58,7 +58,7 @@ export default () => {
  * desc: You can specify the return value
  */
 import React, { useState } from 'react'
-import { Checkbox } from 'are-vision'
+import { Checkbox } from 'are-visual'
 
 type AgreeType = 1 | 2
 
@@ -90,7 +90,7 @@ export default () => {
  * desc: Use with `Checkbox.Group`.
  */
 import React, { useState, useMemo, useEffect } from 'react'
-import { Checkbox } from 'are-vision'
+import { Checkbox } from 'are-visual'
 
 type CheckState = 'checked' | 'unchecked' | 'mixin'
 

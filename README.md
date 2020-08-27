@@ -1,4 +1,4 @@
-# Are Vision
+# Are Visual
 
 ## Getting Started
 

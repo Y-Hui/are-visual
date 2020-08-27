@@ -1,5 +1,5 @@
 import React, { createContext } from 'react'
-import { useMessage, Button } from 'are-vision'
+import { useMessage, Button } from 'are-visual'
 
 const DemoCtx = createContext({ name: 'default' })
 

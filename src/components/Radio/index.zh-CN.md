@@ -4,7 +4,7 @@
 
 ```tsx
 import React, { useState } from 'react'
-import { Radio, Button } from 'are-vision'
+import { Radio, Button } from 'are-visual'
 
 export default () => {
   const [val, setVal] = useState(1)
@@ -37,7 +37,7 @@ export default () => {
 
 ```tsx
 import React from 'react'
-import { Radio } from 'are-vision'
+import { Radio } from 'are-visual'
 
 export default () => {
   return (
@@ -55,7 +55,7 @@ export default () => {
 
 ```tsx
 import React, { useState } from 'react'
-import { Radio } from 'are-vision'
+import { Radio } from 'are-visual'
 
 export default () => {
   const [val, setVal] = useState(0)

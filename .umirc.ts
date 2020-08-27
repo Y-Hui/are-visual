@@ -1,9 +1,9 @@
 import { defineConfig } from 'dumi'
 
 export default defineConfig({
-  title: 'Are Vision',
+  title: 'Are Visual',
   favicon: '/images/favicon.ico',
-  logo: '/images/logo.png',
+  logo: '/images/are-visual.svg',
   outputPath: 'docs-dist',
   // more config: https://d.umijs.org/config
 })

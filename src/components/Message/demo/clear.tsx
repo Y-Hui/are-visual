@@ -1,5 +1,5 @@
 import React from 'react'
-import { message, useMessage, Button } from 'are-vision'
+import { message, useMessage, Button } from 'are-visual'
 
 export default () => {
   const [msgApi, Message] = useMessage()

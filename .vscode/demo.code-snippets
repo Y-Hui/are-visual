@@ -19,7 +19,7 @@
     "prefix": "are-demo",
     "body": [
       "import React from 'react'",
-      "import { Button } from 'are-vision'",
+      "import { Button } from 'are-visual'",
       "",
       "export default () => {",
       "  const onClick = () => {",

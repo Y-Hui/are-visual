@@ -1,5 +1,5 @@
 import React from 'react'
-import { message, Button } from 'are-vision'
+import { message, Button } from 'are-visual'
 
 const key = 'LOADING_MESSAGE_KEY'
 

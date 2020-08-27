@@ -10,15 +10,6 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier/react',
   ],
-  // settings: {
-  //   'import/resolver': {
-  //     alias: {
-  //       map: [
-  //         ['are-vision', './src/index'],
-  //       ],
-  //     }
-  //   }
-  // },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
