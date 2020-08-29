@@ -23,12 +23,12 @@
   }
 
   &-enter-active {
-    animation: zoomIn .3s cubic-bezier(.22, .61, .36, 1) forwards;
+    animation: zoomIn .2s cubic-bezier(.22, .61, .36, 1) forwards;
   }
 
   &-leave-active,
   &-exit-active {
-    animation: zoomIn .3s cubic-bezier(.22, .61, .36, 1) reverse forwards;
+    animation: zoomIn .2s cubic-bezier(.22, .61, .36, 1) reverse forwards;
   }
 }
 
