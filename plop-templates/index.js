@@ -12,8 +12,16 @@ module.exports = {
     const actions = [
       {
         type: 'add',
+        path: `src/components/${name}/${name}.tsx`,
+        templateFile: `plop-templates/components/name.hbs`,
+        data: {
+          name,
+        },
+      },
+      {
+        type: 'add',
         path: `src/components/${name}/index.tsx`,
-        templateFile: 'plop-templates/components/index.hbs',
+        templateFile: `plop-templates/components/index.hbs`,
         data: {
           name,
         },
@@ -46,6 +54,14 @@ module.exports = {
         type: 'add',
         path: `src/components/${name}/index.zh-CN.md`,
         templateFile: 'plop-templates/doc/zh.hbs',
+        data: {
+          name,
+        },
+      },
+      {
+        type: 'add',
+        path: `src/components/${name}/types/${name}.ts`,
+        templateFile: 'plop-templates/types/name.hbs',
         data: {
           name,
         },

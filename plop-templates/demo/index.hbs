@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { {{ properCase name }}, Button } from 'are-visual'
 
 export default () => {
+  const [state, setState] = useState(false)
+
   const onClick = () => {
-    //
+    setState(false)
   }
   return (
     <>

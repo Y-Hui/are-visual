@@ -1,0 +1,19 @@
+import React from 'react'
+import classnames from 'classnames'
+import { {{ properCase name }}Props } from './types/{{ name }}'
+import './style/index.scss'
+
+const {{ properCase name }}: React.FC<{{ properCase name }}Props> = (props) => {
+  const { className, style } = props
+  return (
+    <>
+      <div className={classnames('are-{{ name }}', className)} style={style}>
+        {{ properCase name }}
+      </div>
+    </>
+  )
+}
+
+{{ properCase name }}.defaultProps = {}
+
+export default {{ properCase name }}
