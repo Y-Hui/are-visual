@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Overlay, Button } from 'are-vision'
+import { Overlay, Button } from 'are-visual'
 
 export default () => {
   const [visible, setVisible] = useState(false)

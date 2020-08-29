@@ -5,39 +5,28 @@ import Animate from 'rc-animate'
 import { OverlayProps } from './types/overlay'
 import './style/index.scss'
 
-const renderToBody = (node: React.ReactNode) => {
-  return ReactDOM.createPortal(node, document.body)
-}
-
 const Overlay: React.FC<OverlayProps> = (props) => {
-  const { className, style, visible, zIndex, children, onClose } = props
+  const {
+    className,
+    style,
+    visible,
+    zIndex,
+    children,
+    container,
+    onClose,
+  } = props
   const [isRender, setIsRender] = useState(false)
-
-  useEffect(() => {
-    const onKeyPressEsc = (e: globalThis.KeyboardEvent) => {
-      if (e.keyCode === 27 && onClose) {
-        onClose()
-      }
-    }
-    if (visible) {
-      document.addEventListener('keydown', onKeyPressEsc)
-    }
-    return () => {
-      document.removeEventListener('keydown', onKeyPressEsc)
-    }
-  }, [visible, onClose])
 
   useEffect(() => {
     if (visible) {
       document.body.style.overflow = 'hidden'
       setIsRender(true)
-    }
-    return () => {
+    } else {
       document.body.style.overflow = 'unset'
     }
   }, [visible])
 
-  const node = (
+  const mask = (
     <div
       className={classnames('are-overlay', className)}
       style={{
@@ -59,11 +48,13 @@ const Overlay: React.FC<OverlayProps> = (props) => {
     </div>
   )
 
-  return renderToBody(
+  const node = (
     <Animate component="" showProp="data-visible" transitionName="are-fade">
-      {isRender ? node : null}
-    </Animate>,
+      {isRender ? mask : null}
+    </Animate>
   )
+
+  return container ? ReactDOM.createPortal(node, container) : node
 }
 
 Overlay.defaultProps = {
