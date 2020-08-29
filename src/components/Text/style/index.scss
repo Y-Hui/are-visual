@@ -1,0 +1,73 @@
+@import "../../../style/_var.scss";
+
+@mixin colorLighten($val) {
+  color: lighten($are-text-color, $val);
+}
+
+.are-text {
+  display: inline-block;
+  margin: 0;
+  font-weight: normal;
+  line-height: 1.5;
+  vertical-align: middle;
+
+  &--block {
+    display: block;
+  }
+
+  &--lh-1 {
+    line-height: 1;
+  }
+
+  &--lh-1-3 {
+    line-height: 1.3;
+  }
+
+  &--lv1 {
+    font-size: 38px;
+  }
+
+  &--lv2 {
+    font-size: 30px;
+  }
+
+  &--lv3 {
+    font-size: 24px;
+  }
+
+  &--lv4 {
+    font-size: 20px;
+  }
+
+  &--lv5 {
+    font-size: 16px;
+  }
+
+  &--lv6 {
+    font-size: 14px;
+  }
+
+  &--weight-2 {
+    @include colorLighten(20%);
+  }
+
+  &--weight-3 {
+    @include colorLighten(30%);
+  }
+
+  &--weight-4 {
+    @include colorLighten(40%);
+  }
+
+  &--weight-5 {
+    @include colorLighten(50%);
+  }
+
+  &--weight-6 {
+    @include colorLighten(60%);
+  }
+
+  &--bold {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,34 @@
+@import "../../../style/_var.scss";
+
+@mixin elevation {
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, .1);
+}
+
+.are-element {
+  display: inline-block;
+  box-sizing: border-box;
+
+  &--block {
+    display: block;
+  }
+
+  &--radius {
+    border-radius: $are-radius;
+  }
+
+  &--elevation-1 {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .1);
+  }
+
+  &--elevation-2 {
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, .1);
+  }
+
+  &--elevation-3 {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, .16);
+  }
+
+  &--elevation-4 {
+    box-shadow: 0 10px 32px 0 rgba(0, 0, 0, .2);
+  }
+}

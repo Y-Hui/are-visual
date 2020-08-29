@@ -11,6 +11,18 @@ export function getType(param: unknown): string {
   return result.toLocaleLowerCase()
 }
 
+/**
+ * @description 查找对象是否包含指定属性
+ * @param target 目标对象
+ * @param attr 属性名称
+ */
+export function hasOwn(
+  target: Record<string, unknown>,
+  attr: string | number | symbol,
+): boolean {
+  return Object.prototype.hasOwnProperty.call(target, attr)
+}
+
 type TargetType = Record<string, unknown> | any[]
 
 /**

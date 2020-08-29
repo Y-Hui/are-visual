@@ -24,7 +24,7 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['mixin', 'include'],
+        ignoreAtRules: ['mixin', 'include', 'extend'],
       },
     ],
     'order/properties-order': [
