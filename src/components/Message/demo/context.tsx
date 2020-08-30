@@ -4,7 +4,7 @@ import { useMessage, Button } from 'are-visual'
 const DemoCtx = createContext({ name: 'default' })
 
 export default () => {
-  const [msgApi, MessageCtx] = useMessage()
+  const [msgApi, MessageHolder] = useMessage()
   const { Provider, Consumer } = DemoCtx
 
   const onClick = () => {
@@ -13,7 +13,7 @@ export default () => {
 
   return (
     <Provider value={{ name: 'Are Vision Message.' }}>
-      <MessageCtx />
+      <MessageHolder />
       <Button onClick={onClick}>Related</Button>
     </Provider>
   )

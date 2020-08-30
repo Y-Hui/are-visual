@@ -16,7 +16,7 @@
 
 ### 清空提示消息
 
-注意：`clearAll` 方法清空的是当前函数所在的上下文的提示消息。
+注意：`clear` 方法清空的是当前函数所在的上下文的提示消息。
 
 <code src="./demo/clear.tsx" />
 
@@ -89,14 +89,22 @@ const { close } = message.info('Info Message', 0).then(() => {
 | className | 自定义 CSS class                            |          | `string`                                                      |          |
 | style     | 自定义行内样式                              |          | `CSSProperties`                                               |          |
 
-### `ClearAll`清空函数
+### `clear` 清空函数
 
-此函数清空的是默认的 `context` 的提示消息。返回值为 `message` 函数。
+此函数清空的是 `message 实例` 的提示消息。返回 `message` 函数。
 
 ```ts
 import { message } from 'are-visual'
 
-message.clearAll()
+message.clear()
+```
+
+链式调用：
+
+```ts
+import { message } from 'are-visual'
+
+message.clear().success('链式调用')
 ```
 
 <br/>
@@ -107,64 +115,14 @@ message.clearAll()
 import { useMessage } from 'are-visual'
 
 export default () => {
-  const [msgApi, Message] = useMessage()
+  const [msgApi, MessageHolder] = useMessage()
   return (
     <>
-      <Message />
-      <Button onClick={() => msgApi.clearAll()}>Clear</Button>
+      <MessageHolder />
+      <Button onClick={() => msgApi.clear()}>Clear</Button>
     </>
   )
 }
 ```
 
-链式调用：
-
-```ts
-import { message } from 'are-visual'
-
-message.clearAll().success('链式调用')
-```
-
-### FAQ
-
-#### 为什么有一个 useMessage Hook？
-
-当我们使用 `React` 开发一个项目时，你通常能在 `index.js` 中看到如下代码：
-
-```ts
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
-
-export default ReactDOM.render(<App />, document.getElementById('root'))
-```
-
-这段代码末尾处调用了 `ReactDOM.render` 函数，创建一个 React 实例（暂且称其为 `App 实例`）。
-
-<br/>
-
-当我们直接调用 `message` 函数时，`Are` 会使用 `ReactDOM.render` 函数创建一个额外的 React 实例（暂且称其为 `Symbol 实例`），通过别名函数显示一个提示消息，这条提示被记录在 `Symbol 实例` 内部。
-
-因此，`message` 函数无法访问到处于 `App 实例` 的上下文，它们之间并没有任何联系。所以，这也是为什么 `clearAll` 函数无法清除所有的提示消息，只能清除对应实例内部的提示消息。
-
-当你使用 `createContext` 向子孙组件传递数据并且 `message` 需要显示这些数据时，你就不能使用 `message` 函数，而应该使用 `useMessage` Hook。
-
-`useMessage` Hook 会返回对应的调用函数和实例。
-
-```ts
-import { useMessage } from 'are-visual'
-
-export default () => {
-  const [msgApi, Message] = useMessage()
-  return (
-    <>
-      {/* 必须要插入当前创建的 Message 实例，才能与当前代码产生关联 */}
-      <Message />
-    </>
-  )
-}
-```
-
-当然，`msgApi` 使用方式和 `message` 函数完全一样，只是对应不一样的实例。
-
-综上所述：`message` 与当前代码属于两个实例，互不关联。`useMessage` Hook 可以返回一个实例，在当前代码中插入，成为父子组件关系。
+`useMessage` Hook 和 `message` 除使用方法一致以外，内部数据并不互通。所以，由 `useMessage` Hook 创建的提示消息不能够被 `message` 函数关闭、清空，反之亦然。

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MessageStore from './MessageStore'
+import MessageWrapper from './MessageWrapper'
 import { MessageStoreRef } from './types/store'
 import { createContainer, CONTAINER_ID } from './utils/container'
 import { createAlias } from './alias'
@@ -11,7 +11,7 @@ function init(): MessageStoreRef {
   const container = document.getElementById(CONTAINER_ID)
   if (!instance || !container) {
     ReactDOM.render(
-      <MessageStore
+      <MessageWrapper
         ref={(func) => {
           instance = func
         }}

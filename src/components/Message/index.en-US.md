@@ -16,7 +16,7 @@ By default, messages are displayed for `3000` milliseconds. You can change the d
 
 ### Clear messages
 
-Note: The `clearAll` method clears the prompt for the context of the current function.
+Note: The `clear` method clears the prompt for the context of the current function.
 
 <code src="./demo/clear.tsx" />
 
@@ -96,7 +96,15 @@ This function clears the default `context` prompt message. The return value is t
 ```ts
 import { message } from 'are-visual'
 
-message.clearAll()
+message.clear()
+```
+
+Chain call：
+
+```ts
+import { message } from 'are-visual'
+
+message.clear().success('Chain call')
 ```
 
 <br/>
@@ -107,64 +115,14 @@ If you use `useMessage` then you should write something like this.
 import { useMessage } from 'are-visual'
 
 export default () => {
-  const [msgApi, Message] = useMessage()
+  const [msgApi, MessageHolder] = useMessage()
   return (
     <>
-      <Message />
-      <Button onClick={() => msgApi.clearAll()}>Clear</Button>
+      <MessageHolder />
+      <Button onClick={() => msgApi.clear()}>Clear</Button>
     </>
   )
 }
 ```
 
-Chain call：
-
-```ts
-import { message } from 'are-visual'
-
-message.clearAll().success('Chain call')
-```
-
-### FAQ
-
-#### Why is there a useMessage Hook?
-
-When we use `React` to develop a project, you can usually see the following code in `index.js`.
-
-```ts
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
-
-export default ReactDOM.render(<App />, document.getElementById('root'))
-```
-
-The `ReactDOM.render` function is called at the end of this code to create a React instance (let's call it an `App instance`).
-
-<br/>
-
-When we call the `message` function directly, `Are` uses the `ReactDOM.render` function to create an additional React instance (let's call it a `Symbol instance`) that displays a message via an alias function, which is logged inside the `Symbol instance`.
-
-As a result, the `message` function cannot access the context of the `App instance`, there is no connection between them. So, that's why the `clearAll` function can't clear all the messages, only the messages inside the corresponding instance.
-
-When you use `createContext` to pass data to a descendant component and `message` needs to display that data, you can't use the `message` function, you should use `useMessage` Hook instead.
-
-`useMessage` Hook will return the corresponding call function and instance.
-
-```ts
-import { useMessage } from 'are-visual'
-
-export default () => {
-  const [msgApi, Message] = useMessage()
-  return (
-    <>
-      {/* The currently created Message instance must be inserted in order to be associated with the current code. */}
-      <Message />
-    </>
-  )
-}
-```
-
-Of course, `msgApi` is used in exactly the same way as the `message` function, except that it corresponds to a different instance.
-
-In summary: `message` and the current code are two instances, unrelated to each other. A `useMessage` Hook can return an instance that is inserted into the current code as a parent-child component relationship.
+`useMessage` Hook and `message` do not share internal data except for the same usage. Therefore, a message created by `useMessage` Hook cannot be closed and cleared by the `message` function, and vice versa.

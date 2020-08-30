@@ -14,7 +14,7 @@ export default () => {
   }
 
   const clear = () => {
-    message.clearAll()
+    message.clear()
   }
 
   return (

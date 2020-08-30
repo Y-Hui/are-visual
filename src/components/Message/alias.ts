@@ -71,7 +71,7 @@ function createAlias(call: () => MessageStoreRef): MessageAliasMethods {
         ...props,
       })
     },
-    clearAll() {
+    clear() {
       const result = call()
       if (result) {
         call().clear()

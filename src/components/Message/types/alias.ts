@@ -28,5 +28,5 @@ export interface MessageAliasMethods {
   /** 加载状态 */
   loading: MessageAliasFunc
   /** 清空所有的 Message */
-  clearAll: () => MessageAliasMethods
+  clear: () => MessageAliasMethods
 }
