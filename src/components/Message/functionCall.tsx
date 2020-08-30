@@ -29,6 +29,8 @@ function call(): MessageStoreRef {
   return instance as MessageStoreRef
 }
 
+init()
+
 const message = createAlias(call)
 
 export default message

@@ -5,23 +5,35 @@
 Install dependencies,
 
 ```bash
-$ npm i
+$ yarn
 ```
 
 Start the dev server,
 
 ```bash
-$ npm start
+$ yarn start
 ```
 
 Build documentation,
 
 ```bash
-$ npm run docs:build
+$ yarn docs:build
 ```
 
 Build library via `father-build`,
 
 ```bash
-$ npm run build
+$ yarn build
 ```
+
+[English Documentation](https://y-hui.github.io/are-visual/docs-dist/)
+[中文文档](https://y-hui.github.io/are-visual/docs-dist/zh-CN/)
+
+## About Are Visual
+
+This is a React component library. Has a modern UI design.
+
+You can call it that.
+
+- Are Visual
+- Are
