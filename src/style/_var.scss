@@ -1,0 +1,41 @@
+// [Button、Checkbox]圆角
+$are-radius: 4px;
+// [modal、dialog] 圆角
+$are-modal-radius: 4px;
+
+// [按钮] 文字行高
+$are-button-line-height: 1;
+
+// 主色调
+$are-primary: #0764ff;
+// 警告色
+$are-warn: #ffab00;
+// 危险色
+$are-danger: #f42525;
+// 成功色
+$are-success: #2aae67;
+
+// 基础背景色
+$are-basic-bg: #f3f3f3;
+
+// 基本文字颜色
+$are-text-color: #292929;
+
+// 边框颜色
+$are-border: #d6d6d6;
+// 装饰性边框颜色--不需要高对比度情况下使用
+$are-border-light: #eaeaea;
+
+// 禁用：透明度
+$are-disabled-opacity: .6;
+// 禁用：文字颜色
+$are-disabled-text: rgba(0, 0, 0, .4);
+// 禁用：背景色
+$are-disabled-background: #ddd;
+// 禁用：边框颜色
+$are-disabled-border: #ccc;
+
+@mixin AreFocus() {
+  border-color: lighten($are-primary, 10%);
+  box-shadow: 0 0 0 2px rgba($are-primary, .4);
+}

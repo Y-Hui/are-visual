@@ -1,0 +1,15 @@
+@import "../../../style/_var.scss";
+
+.are-dialog {
+  width: 320px;
+  min-width: 240px;
+  box-sizing: border-box;
+
+  &__icon {
+    font-size: 24px;
+  }
+
+  &__footer {
+    text-align: right;
+  }
+}

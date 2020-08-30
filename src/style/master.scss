@@ -1,0 +1,68 @@
+@import './var';
+
+@import './animation.scss';
+
+[data-focus-visible-added].focus-visible {
+  outline: solid 2px rgba($are-primary, .4);
+}
+
+[class^='are-'] {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Heiti SC',
+    'Microsoft YaHei',
+    'WenQuanYi Micro Hei',
+    sans-serif;
+}
+
+.are-font {
+  font-size: 14px;
+  color: $are-text-color;
+}
+
+.are-svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: -.15em;
+  fill: currentColor;
+}
+
+.are-color {
+  color: $are-text-color;
+
+  &--primary {
+    color: $are-primary;
+  }
+
+  &--danger {
+    color: $are-danger;
+  }
+
+  &--warn {
+    color: $are-warn;
+  }
+
+  &--success {
+    color: $are-success;
+  }
+}
+
+[data-js-focus-visible] :focus:not([data-focus-visible-added]) {
+  outline: none;
+}
+
+.are-fixed-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
